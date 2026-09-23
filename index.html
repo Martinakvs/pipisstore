@@ -1,0 +1,586 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pipis Global LLC - Quality E-commerce Solutions</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #2c3e50;
+            background-color: #f8f9fa;
+            overflow-x: hidden;
+        }
+
+        /* Header & Navigation */
+        header {
+            background-color: #ffffff;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            width: 100%;
+        }
+
+        .header-top {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: clamp(15px, 5vw, 20px);
+            max-width: 100%;
+            margin: 0 auto;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        .header-left {
+            display: flex;
+            align-items: center;
+            gap: clamp(10px, 2vw, 15px);
+            flex-shrink: 0;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: clamp(8px, 2vw, 15px);
+            flex-shrink: 0;
+        }
+
+        .logo svg {
+            height: clamp(40px, 8vw, 60px);
+            width: auto;
+            flex-shrink: 0;
+        }
+
+        .logo-text h1 {
+            font-size: clamp(16px, 4vw, 24px);
+            color: #1a5f4a;
+            font-weight: 700;
+            letter-spacing: -0.5px;
+            white-space: nowrap;
+        }
+
+        .logo-text p {
+            font-size: clamp(9px, 2vw, 12px);
+            color: #7f8c8d;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-top: 2px;
+            white-space: nowrap;
+        }
+
+        .contact-button {
+            background-color: #1a5f4a;
+            color: white;
+            padding: clamp(10px, 2vw, 12px) clamp(15px, 3vw, 28px);
+            border: none;
+            border-radius: 5px;
+            font-size: clamp(11px, 2vw, 14px);
+            font-weight: 600;
+            cursor: pointer;
+            text-decoration: none;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            white-space: nowrap;
+            flex-shrink: 0;
+        }
+
+        .contact-button:hover {
+            background-color: #0f4034;
+            transform: translateY(-2px);
+        }
+
+        /* Navigation Tabs */
+        nav {
+            display: flex;
+            gap: 0;
+            padding: 0;
+            width: 100%;
+            justify-content: center;
+            border-top: 1px solid #ecf0f1;
+            flex-wrap: wrap;
+        }
+
+        .nav-item {
+            position: relative;
+            flex: 0 1 auto;
+        }
+
+        .nav-button {
+            width: auto;
+            padding: clamp(12px, 2vw, 18px) clamp(12px, 2.5vw, 30px);
+            background-color: transparent;
+            border: none;
+            color: #2c3e50;
+            font-size: clamp(11px, 2vw, 15px);
+            font-weight: 600;
+            cursor: pointer;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            transition: all 0.3s ease;
+            border-bottom: 3px solid transparent;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            white-space: nowrap;
+        }
+
+        .nav-button:hover {
+            background-color: #f8f9fa;
+            color: #1a5f4a;
+            border-bottom: 3px solid #1a5f4a;
+        }
+
+        /* Main Content */
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: clamp(25px, 5vw, 60px) clamp(15px, 5vw, 60px);
+            width: 100%;
+        }
+
+        .section {
+            display: none;
+            width: 100%;
+        }
+
+        .section.active {
+            display: block;
+            animation: fadeIn 0.5s ease;
+            width: 100%;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(10px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Home Section */
+        .hero {
+            text-align: center;
+            padding: clamp(40px, 8vw, 80px) clamp(20px, 5vw, 40px);
+            background: linear-gradient(135deg, #1a5f4a 0%, #2d7a5f 100%);
+            color: white;
+            border-radius: 10px;
+            margin-bottom: clamp(40px, 8vw, 60px);
+        }
+
+        .hero h2 {
+            font-size: clamp(24px, 6vw, 48px);
+            margin-bottom: clamp(12px, 3vw, 20px);
+            font-weight: 700;
+            letter-spacing: -1px;
+            line-height: 1.2;
+        }
+
+        .hero p {
+            font-size: clamp(13px, 2.5vw, 18px);
+            margin-bottom: clamp(20px, 4vw, 30px);
+            opacity: 0.95;
+            line-height: 1.8;
+        }
+
+        .hero-button {
+            background-color: white;
+            color: #1a5f4a;
+            padding: clamp(11px, 2vw, 15px) clamp(25px, 5vw, 40px);
+            border: none;
+            border-radius: 5px;
+            font-size: clamp(12px, 2vw, 16px);
+            font-weight: 700;
+            cursor: pointer;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            display: inline-block;
+        }
+
+        .hero-button:hover {
+            background-color: #f0f0f0;
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+        }
+
+        .value-props {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: clamp(20px, 4vw, 40px);
+        }
+
+        .value-prop {
+            background-color: white;
+            padding: clamp(20px, 4vw, 35px);
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .value-prop:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.12);
+        }
+
+        .value-prop h3 {
+            color: #1a5f4a;
+            font-size: clamp(16px, 3.5vw, 22px);
+            margin-bottom: clamp(10px, 2vw, 15px);
+            font-weight: 700;
+        }
+
+        .value-prop p {
+            color: #555;
+            font-size: clamp(12px, 2.2vw, 15px);
+            line-height: 1.7;
+        }
+
+        /* About Section */
+        .about-content {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .about-content h2 {
+            color: #1a5f4a;
+            font-size: clamp(24px, 5vw, 40px);
+            margin-bottom: clamp(20px, 4vw, 35px);
+            font-weight: 700;
+        }
+
+        .about-content h3 {
+            color: #1a5f4a;
+            font-size: clamp(18px, 4vw, 28px);
+            margin-top: clamp(25px, 5vw, 40px);
+            margin-bottom: clamp(15px, 3vw, 25px);
+            font-weight: 700;
+        }
+
+        .about-content p {
+            color: #2c3e50;
+            font-size: clamp(13px, 2.5vw, 16px);
+            line-height: 1.9;
+            margin-bottom: clamp(15px, 3vw, 25px);
+        }
+
+        .approach-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: clamp(20px, 4vw, 30px);
+            margin-top: clamp(20px, 4vw, 30px);
+        }
+
+        .approach-item {
+            background-color: #f8f9fa;
+            padding: clamp(20px, 3vw, 30px);
+            border-radius: 8px;
+            border-left: 4px solid #1a5f4a;
+        }
+
+        .approach-item h4 {
+            color: #1a5f4a;
+            font-size: clamp(14px, 2.8vw, 18px);
+            margin-bottom: clamp(10px, 2vw, 15px);
+            font-weight: 700;
+        }
+
+        .approach-item p {
+            color: #555;
+            font-size: clamp(12px, 2.2vw, 15px);
+            line-height: 1.7;
+        }
+
+        /* Categories Section */
+        .categories-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: clamp(20px, 4vw, 35px);
+            margin-top: clamp(30px, 5vw, 50px);
+        }
+
+        .category-card {
+            background-color: white;
+            padding: clamp(25px, 4vw, 40px);
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        .category-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 12px 24px rgba(0, 0, 0, 0.15);
+        }
+
+        .category-icon {
+            font-size: clamp(32px, 6vw, 48px);
+            display: block;
+            margin-bottom: clamp(12px, 2vw, 18px);
+        }
+
+        .category-card h3 {
+            color: #1a5f4a;
+            font-size: clamp(14px, 3vw, 20px);
+            margin-bottom: clamp(10px, 2vw, 15px);
+            font-weight: 700;
+        }
+
+        .category-card p {
+            color: #666;
+            font-size: clamp(12px, 2.2vw, 15px);
+            line-height: 1.6;
+        }
+
+        /* Contact Section */
+        .contact-content {
+            max-width: 600px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .contact-content h2 {
+            color: #1a5f4a;
+            font-size: clamp(24px, 5vw, 40px);
+            margin-bottom: clamp(20px, 4vw, 35px);
+            font-weight: 700;
+        }
+
+        .contact-content p {
+            color: #2c3e50;
+            font-size: clamp(13px, 2.5vw, 16px);
+            line-height: 1.9;
+            margin-bottom: clamp(12px, 2.5vw, 30px);
+        }
+
+        .email-link {
+            display: inline-block;
+            background-color: #1a5f4a;
+            color: white;
+            padding: clamp(11px, 2vw, 18px) clamp(25px, 5vw, 50px);
+            border-radius: 5px;
+            text-decoration: none;
+            font-size: clamp(13px, 2.5vw, 18px);
+            font-weight: 700;
+            letter-spacing: 0.5px;
+            transition: all 0.3s ease;
+            margin-bottom: clamp(12px, 2.5vw, 20px);
+        }
+
+        .email-link:hover {
+            background-color: #0f4034;
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+        }
+
+        .email-display {
+            color: #1a5f4a;
+            font-size: clamp(16px, 3.5vw, 24px);
+            font-weight: 700;
+            margin-top: clamp(12px, 2.5vw, 20px);
+            word-break: break-word;
+        }
+
+        /* Footer */
+        footer {
+            background-color: #2c3e50;
+            color: white;
+            text-align: center;
+            padding: clamp(25px, 4vw, 40px) clamp(15px, 4vw, 20px);
+            margin-top: clamp(50px, 10vw, 80px);
+            font-size: clamp(11px, 2vw, 14px);
+            width: 100%;
+        }
+
+        footer p {
+            margin-bottom: clamp(6px, 1.5vw, 10px);
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="header-top">
+            <div class="header-left">
+                <div class="logo">
+                    <svg width="60" height="60" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+                        <circle cx="100" cy="100" r="95" fill="none" stroke="#1a5f4a" stroke-width="2"/>
+                        <text x="100" y="120" font-size="60" font-weight="bold" text-anchor="middle" fill="#1a5f4a">P</text>
+                    </svg>
+                    <div class="logo-text">
+                        <h1>PIPIS GLOBAL</h1>
+                        <p>E-Commerce Solutions</p>
+                    </div>
+                </div>
+            </div>
+            <a href="mailto:sales@pipisstore.com" class="contact-button">✉️ Contact Us</a>
+        </div>
+
+        <nav>
+            <div class="nav-item" data-section="home">
+                <button class="nav-button">HOME</button>
+            </div>
+            <div class="nav-item" data-section="about">
+                <button class="nav-button">ABOUT US</button>
+            </div>
+            <div class="nav-item" data-section="categories">
+                <button class="nav-button">BRANDS & CATEGORIES</button>
+            </div>
+            <div class="nav-item" data-section="contact">
+                <button class="nav-button">CONTACT US</button>
+            </div>
+        </nav>
+    </header>
+
+    <div class="container">
+        <!-- HOME SECTION -->
+        <section id="home" class="section active">
+            <div class="hero">
+                <h2>Quality Products at Competitive Prices</h2>
+                <p>We source and deliver premium products through strategic partnerships with trusted manufacturers and distributors.</p>
+                <a href="mailto:sales@pipisstore.com" class="hero-button">Get Started</a>
+            </div>
+
+            <div class="value-props">
+                <div class="value-prop">
+                    <h3>Premium Quality</h3>
+                    <p>We carefully curate every product to ensure consistent quality and customer satisfaction across all categories.</p>
+                </div>
+                <div class="value-prop">
+                    <h3>Competitive Pricing</h3>
+                    <p>Our direct relationships with manufacturers allow us to offer excellent value without compromising on quality.</p>
+                </div>
+                <div class="value-prop">
+                    <h3>Reliable Partnership</h3>
+                    <p>We build stable, sustainable business relationships that create mutual growth for all parties.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- ABOUT SECTION -->
+        <section id="about" class="section">
+            <div class="about-content">
+                <h2>About Pipis Global LLC</h2>
+                <p>Pipis Global LLC is a growing e-commerce company focused on sourcing, developing, and selling quality consumer products through online marketplaces, with a primary focus on Amazon FBA.</p>
+                
+                <p>We believe in the power of strong partnerships. Rather than looking for quick transactions, we invest in building reliable, sustainable relationships with manufacturers, distributors, and brands worldwide.</p>
+
+                <h3>Our Mission</h3>
+                <p>To become a trusted partner for quality product sourcing and distribution, delivering exceptional value to our suppliers and customers alike.</p>
+
+                <h3>Our Approach</h3>
+                <div class="approach-grid">
+                    <div class="approach-item">
+                        <h4>Reliable Suppliers</h4>
+                        <p>We partner with established, vetted manufacturers and distributors who share our commitment to quality.</p>
+                    </div>
+                    <div class="approach-item">
+                        <h4>Strategic Partnerships</h4>
+                        <p>We develop sustainable business relationships that create mutual growth and stability for all parties.</p>
+                    </div>
+                    <div class="approach-item">
+                        <h4>Quality First</h4>
+                        <p>We focus exclusively on products with consistent quality standards and proven market potential.</p>
+                    </div>
+                </div>
+
+                <h3>Why Work With Us</h3>
+                <p>📊 Data-Driven Approach • 🌐 Global Reach • ⚡ Fast Processing • 🤝 Dedicated Support</p>
+            </div>
+        </section>
+
+        <!-- CATEGORIES SECTION -->
+        <section id="categories" class="section">
+            <h2 style="color: #1a5f4a; font-size: clamp(22px, 5vw, 36px); margin-bottom: clamp(20px, 4vw, 40px); font-weight: 700; text-align: center;">What We're Looking For</h2>
+            <p style="text-align: center; color: #7f8c8d; font-size: clamp(13px, 2.5vw, 16px); margin-bottom: clamp(30px, 5vw, 50px);">We source quality products across multiple categories. If you represent a brand or manufacture products in any of these areas, we'd love to hear from you.</p>
+            
+            <div class="categories-grid">
+                <div class="category-card">
+                    <span class="category-icon">🏠</span>
+                    <h3>Home & Kitchen</h3>
+                    <p>Premium kitchenware, cookware, and home essentials</p>
+                </div>
+                <div class="category-card">
+                    <span class="category-icon">🐾</span>
+                    <h3>Pet Products</h3>
+                    <p>Quality pet supplies, accessories, and care products</p>
+                </div>
+                <div class="category-card">
+                    <span class="category-icon">✨</span>
+                    <h3>Home Decoration</h3>
+                    <p>Stylish decor items and home furnishing solutions</p>
+                </div>
+                <div class="category-card">
+                    <span class="category-icon">🔌</span>
+                    <h3>Electronics</h3>
+                    <p>Consumer electronics and smart home devices</p>
+                </div>
+                <div class="category-card">
+                    <span class="category-icon">🔧</span>
+                    <h3>Tools & Hardware</h3>
+                    <p>Professional and DIY tools and hardware solutions</p>
+                </div>
+                <div class="category-card">
+                    <span class="category-icon">🌿</span>
+                    <h3>Outdoor & Lifestyle</h3>
+                    <p>Outdoor gear, sports equipment, and lifestyle products</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- CONTACT SECTION -->
+        <section id="contact" class="section">
+            <div class="contact-content">
+                <h2>Get In Touch</h2>
+                <p>Are you a manufacturer, distributor, or brand interested in working with us?</p>
+                <p>We're always looking for quality suppliers and exciting new products to add to our catalog.</p>
+                
+                <a href="mailto:sales@pipisstore.com" class="email-link">Send Us an Email</a>
+                
+                <p style="margin-top: clamp(25px, 5vw, 40px); font-size: clamp(12px, 2vw, 14px); color: #7f8c8d;">Or contact us directly at:</p>
+                <div class="email-display">sales@pipisstore.com</div>
+            </div>
+        </section>
+    </div>
+
+    <footer>
+        <p>&copy; 2026 Pipis Global LLC. All rights reserved.</p>
+        <p>Building quality partnerships, one product at a time.</p>
+    </footer>
+
+    <script>
+        const navItems = document.querySelectorAll('.nav-item');
+        const sections = document.querySelectorAll('.section');
+
+        navItems.forEach(item => {
+            item.addEventListener('click', function() {
+                sections.forEach(section => section.classList.remove('active'));
+                const sectionId = this.getAttribute('data-section');
+                const section = document.getElementById(sectionId);
+                if (section) {
+                    section.classList.add('active');
+                    section.scrollIntoView({ behavior: 'smooth' });
+                }
+            });
+        });
+
+        document.querySelector('[data-section="home"]').classList.add('active');
+    </script>
+</body>
+</html>
